@@ -9,6 +9,7 @@ This is a temporary script file.
 from bokeh.plotting import figure
 from bokeh.io import output_file, show
 from Bio import SeqIO, SeqUtils
+import random
 
 TOOLS = ["hover", "wheel_zoom", "crosshair", "pan"]
 
@@ -57,7 +58,10 @@ f = figure(width=1200, height=800, tools=TOOLS)
 # crate line object depending on number of input sequences.
 
 for i in range(len(outfile)):
-    f.line(outfile[i][0], outfile[i][1], legend = outfile[i][2])
+    randomColor = random.sample(range(1, 220), 3)
+    col = tuple(randomColor)
+    
+    f.line(outfile[i][0], outfile[i][1], legend = outfile[i][2], color = col)
 
 show(f)
 
