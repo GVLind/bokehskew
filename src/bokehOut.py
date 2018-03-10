@@ -11,7 +11,8 @@ def bokeh_html(skewData):
 	fileName = skewData[0]
 	skew = skewData[1]
 
-	output_file(fileName + ".html")
+	output = "../html/" + fileName + ".html"
+	output_file(output)
 
 	# declare figure object
 	f = figure(width = 1200, height = 800, tools = TOOLS, title = fileName )
