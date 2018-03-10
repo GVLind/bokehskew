@@ -6,19 +6,24 @@ import random
 
 TOOLS = ["hover", "wheel_zoom", "crosshair", "pan"]
 
-def bokeh_html(outfile):
+def bokeh_html(skewData):
 
-	output_file("Line.html")
+	fileName = skewData[0]
+	skew = skewData[1]
+
+	output_file(fileName + ".html")
 
 	# declare figure object
-	f = figure(width=1200, height=800, tools=TOOLS)
+	f = figure(width = 1200, height = 800, tools = TOOLS, title = fileName )
 
 	# crate line object depending on number of input sequences.
+	for i in range(len(skew)):
 
-	for i in range(len(outfile)):
+		# adding random color feature.
 	    randomColor = random.sample(range(1, 220), 3)
 	    col = tuple(randomColor)
 	    
-	    f.line(outfile[i][0], outfile[i][1], legend = outfile[i][2], color = col)
+	    # declares line based on outfile data.
+	    f.line(skew[i][0], skew[i][1], legend = skew[i][2], color = col)
 
 	show(f)

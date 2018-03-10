@@ -1,15 +1,17 @@
 #!/usr/bin/python3
 
 from Bio import SeqIO, SeqUtils
-
+import os
+import sys
 
 # declaring new lists
-infile = []
-outfile = []
 
-def parseInput():
+def parseInput(infile):
 # open input file, hardcoded.
-	with open ("../data/e.coliMix.fasta","r") as handle:
+	
+	skewData = []
+
+	with open (infile, "r") as handle:
 	    
 	    # parse input
 	    for record in SeqIO.parse(handle, "fasta"):
@@ -18,38 +20,56 @@ def parseInput():
 	        gc = SeqUtils.GC_skew(record.seq, 100)
 
 	        # create new list with id and gc
-	        infile.append([record.id, gc])
+	        skewData.append([record.id, gc])
 
-	    return infile
+	    return skewData
 
 def calculateSkew(infile):
+
+	skewList = []
 
 	for i in infile:
 	    
 	    # expanding incoming list
 	    id = i[0]
 	    gc = i[1]
-	    
+	    y = [0]
+
 	    # create new list for x and y values
 	    x = [x for x in range(len(gc))]
-	    y = [0]
 	    
 	    # creating list with gc-skew
 	    for i in gc:
-	        y.append(y[-1]+i)
+	        y.append(y[-1] + i)
 	    
 	    # removing empty first element
 	    y = y[1:]
 	    
 	    # appending x, y-coordinated to a list, complete with ID.
-	    outfile.append([x, y, id])
+	    skewList.append([x, y, id])
 
-	return outfile
+	return skewList
+
+def get_files(path = "../data/"):
+
+	for filename in os.listdir(path):
+
+		if filename.endswith(".fasta"):
+			
+			yield filename
 
 def start():
 
-	infile = parseInput()
-	outfile = calculateSkew(infile)
-	
-	return outfile
+	path = sys.argv[1]
 
+	for file in get_files(path):
+
+		fullPath = path + file
+
+		skewData = parseInput(fullPath)
+		skewList = calculateSkew(skewData)
+
+		yield (file, skewList)
+
+if __name__ == "__main__":
+	start()

@@ -3,5 +3,5 @@
 import skew
 import bokehOut
 
-skew = skew.start()
-bokehOut.bokeh_html(skew)
+for skewData in skew.start():
+	bokehOut.bokeh_html(skewData)
