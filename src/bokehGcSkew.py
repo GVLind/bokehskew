@@ -3,5 +3,8 @@
 import skew
 import bokehOut
 
+plots =[]
+
 for skewData in skew.start():
-	bokehOut.bokeh_html(skewData)
+	plots.append(bokehOut.bokeh_html(skewData))
+

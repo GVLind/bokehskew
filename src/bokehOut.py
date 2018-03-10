@@ -27,4 +27,5 @@ def bokeh_html(skewData):
 	    # declares line based on outfile data.
 	    f.line(skew[i][0], skew[i][1], legend = skew[i][2], color = col)
 
+	print ("plotting to: " + output)
 	show(f)

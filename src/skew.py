@@ -60,7 +60,11 @@ def get_files(path = "../data/"):
 
 def start():
 
-	path = sys.argv[1]
+	try:
+		path = sys.argv[1]
+	
+	except:
+		path = "../data/"
 
 	for file in get_files(path):
 
