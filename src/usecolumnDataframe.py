@@ -21,9 +21,9 @@ suggested improvements:
 2) add feature for uploading data for analysis. 
 
 '''
-from bokeh.models import Select, LinearAxis, Range1d
+from bokeh.models import Select, LinearAxis, Range1d, ColumnDataSource
 from bokeh.plotting import figure
-from bokeh.io import curdoc,
+from bokeh.io import curdoc
 from bokeh.layouts import layout
 from Bio import SeqIO, SeqUtils
 import pandas as pd
