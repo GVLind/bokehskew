@@ -1,0 +1,45 @@
+2018-03-11 13:45:26,984 Starting Bokeh server version 0.12.13 (running on Tornado 4.5.3)
+2018-03-11 13:45:26,986 Bokeh app running at: http://localhost:5006/bokehServe
+2018-03-11 13:45:26,986 Starting Bokeh server with process id: 15079
+2018-03-11 13:45:30,058 Error running application handler <bokeh.application.handlers.script.ScriptHandler object at 0x7fa779dbf9b0>: expected an instance of type Title, got [[0, 1], [0.08, -0.01090909090909091], 'id1'] of type list
+File "properties.py", line 483, in validate:
+(self.instance_type.__name__, value, type(value).__name__)) Traceback (most recent call last):
+  File "/home/gvl/anaconda3/lib/python3.6/site-packages/bokeh/application/handlers/code_runner.py", line 125, in run
+    exec(self._code, module.__dict__)
+  File "/home/gvl/Documents/Binp29/small_project/src/bokehServe.py", line 25, in <module>
+    f = figure(width = 1200, height = 800, title = fileName )
+  File "/home/gvl/anaconda3/lib/python3.6/site-packages/bokeh/plotting/figure.py", line 793, in figure
+    return Figure(**kwargs)
+  File "/home/gvl/anaconda3/lib/python3.6/site-packages/bokeh/plotting/figure.py", line 138, in __init__
+    super(Figure, self).__init__(*arg, **kw)
+  File "/home/gvl/anaconda3/lib/python3.6/site-packages/bokeh/models/plots.py", line 49, in __init__
+    super(LayoutDOM, self).__init__(**kwargs)
+  File "/home/gvl/anaconda3/lib/python3.6/site-packages/bokeh/model.py", line 219, in __init__
+    super(Model, self).__init__(**kwargs)
+  File "/home/gvl/anaconda3/lib/python3.6/site-packages/bokeh/core/has_props.py", line 236, in __init__
+    setattr(self, name, value)
+  File "/home/gvl/anaconda3/lib/python3.6/site-packages/bokeh/core/has_props.py", line 263, in __setattr__
+    super(HasProps, self).__setattr__(name, value)
+  File "/home/gvl/anaconda3/lib/python3.6/site-packages/bokeh/core/property/descriptors.py", line 503, in __set__
+    self._internal_set(obj, value, setter=setter)
+  File "/home/gvl/anaconda3/lib/python3.6/site-packages/bokeh/core/property/descriptors.py", line 724, in _internal_set
+    value = self.property.prepare_value(obj, self.name, value)
+  File "/home/gvl/anaconda3/lib/python3.6/site-packages/bokeh/core/property/bases.py", line 281, in prepare_value
+    raise e
+  File "/home/gvl/anaconda3/lib/python3.6/site-packages/bokeh/core/property/bases.py", line 274, in prepare_value
+    self.validate(value)
+  File "/home/gvl/anaconda3/lib/python3.6/site-packages/bokeh/core/properties.py", line 483, in validate
+    (self.instance_type.__name__, value, type(value).__name__))
+ValueError: expected an instance of type Title, got [[0, 1], [0.08, -0.01090909090909091], 'id1'] of type list
+ 
+2018-03-11 13:45:30,063 200 GET /bokehServe (127.0.0.1) 129.56ms
+2018-03-11 13:45:30,076 304 GET /static/css/bokeh.min.css?v=06206b4cbc8ea56b6016931bd1976f7f (127.0.0.1) 4.22ms
+2018-03-11 13:45:30,077 304 GET /static/css/bokeh-widgets.min.css?v=509e292d9a7ef7e9eb8382fcde7b4a6e (127.0.0.1) 0.74ms
+2018-03-11 13:45:30,078 304 GET /static/css/bokeh-tables.min.css?v=aa783ffa4e290813a295a99cce2f8b5d (127.0.0.1) 0.57ms
+2018-03-11 13:45:30,079 304 GET /static/js/bokeh.min.js?v=15c391efcd2d880600216acd13aa97ff (127.0.0.1) 0.47ms
+2018-03-11 13:45:30,080 304 GET /static/js/bokeh-widgets.min.js?v=4fab6c0812b586bd3b599927148ddee2 (127.0.0.1) 0.56ms
+2018-03-11 13:45:30,081 304 GET /static/js/bokeh-tables.min.js?v=c7b9e0042fcdcc9186ff88b239811602 (127.0.0.1) 0.62ms
+2018-03-11 13:45:30,083 304 GET /static/js/bokeh-gl.min.js?v=2f4a9a9e9f8b300c68c4ed24b5f4979a (127.0.0.1) 0.71ms
+2018-03-11 13:45:30,178 101 GET /bokehServe/ws?bokeh-protocol-version=1.0&bokeh-session-id=H5CVj2zPddWfYiVU1sPReowZmFwy8by8OSy0kasHK4Vd (127.0.0.1) 0.55ms
+2018-03-11 13:45:30,178 WebSocket connection opened
+2018-03-11 13:45:30,178 ServerConnection created
