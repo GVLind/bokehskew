@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 from bokeh.plotting import figure
-from bokeh.io import output_file, show
+from bokeh.io import output_file, save
 import random
 
 TOOLS = ["hover", "wheel_zoom", "crosshair", "pan"]
@@ -10,6 +10,7 @@ def bokeh_html(skewData):
 
 	fileName = skewData[0]
 	skew = skewData[1]
+
 
 	output = "../html/" + fileName + ".html"
 	
@@ -28,5 +29,5 @@ def bokeh_html(skewData):
 	    # declares line based on outfile data.
 	    f.line(skew[i][0], skew[i][1], legend = skew[i][2], color = col)
 
-	print ("plotting to: " + output)
-	show(f)
+	print ("saving to: " + output)
+	save(f)
